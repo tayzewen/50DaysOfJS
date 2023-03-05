@@ -61,7 +61,21 @@ const limesToCut = (wedgesNeeded, limes) => {
 // remainingOrders(5, ['Energizer', 'All or Nothing', 'Green Garden'])
 // return array of drinks Dmitry needs to prepare
 
+// 'Pure Strawberry Joy' = .5
+// 'Energizer' & 'Green Garden' = 1.5
+// 'Tropical Island' = 3
+// 'All or Nothing' = 5
+// Everything else = 2.5
+
 const remainingOrders = (timeLeft, orders) => {
-	
-	return
+    let prepareTime = 0
+    while (prepareTime < timeLeft && orders.length > 0) {
+      prepareTime += timeToMixJuice(orders.shift())
+    }
+    return orders
+
 }
+
+remainingOrders(8, ['Energizer', 'All or Nothing', 'Green Garden']);
+
+
